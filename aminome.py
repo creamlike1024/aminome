@@ -1,4 +1,4 @@
-# Register local notes on Misskey to Meilisearch
+# Register all notes on Misskey to Meilisearch
 import psycopg2
 import psycopg2.extras
 import orjson
