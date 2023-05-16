@@ -26,9 +26,11 @@ headers = {
 lmt = 100000
 ofs = 0
 
-notes = []
-
 while True:
+    # Initialize notes from batch
+    notes = []
+
+    # Get a batch
     with db.cursor() as cur:
         cur.execute('SELECT "id", "createdAt", "userId", "userHost", "channelId", "cw", "text", "tags" FROM "note" \
                     WHERE ("note"."text" IS NOT NULL) \
@@ -51,8 +53,12 @@ while True:
     print(f'{ofs=} {lmt=} {len(notes)=}')
     ofs = ofs + lmt
 
+    # Post a batch
+    response = requests.post(url, data=orjson.dumps(notes), headers=headers)
+
+    # Print batch result
+    print(response.content)
+
+print('All notes uploaded, program finish.')
+
 db.close()
-
-response = requests.post(url, data=orjson.dumps(notes), headers=headers)
-
-print(response.content)
