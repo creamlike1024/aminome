@@ -32,8 +32,7 @@ while True:
     with db.cursor() as cur:
         cur.execute('SELECT "id", "createdAt", "userId", "userHost", "channelId", "cw", "text", "tags" FROM "note" \
                     WHERE ("note"."visibility" = \'public\' OR "note"."visibility" = \'home\') AND\
-                    ("note"."text" IS NOT NULL) AND\
-                    ( "note"."uri" IS NULL) \
+                    ("note"."text" IS NOT NULL) \
                     LIMIT '  + str(lmt) + ' OFFSET ' + str(ofs))
         qnotes = cur.fetchall()
         if not qnotes:
