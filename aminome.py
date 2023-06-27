@@ -41,7 +41,6 @@ while True:
     for note in qnotes:
         notes.append({
             'id': note['id'],
-            'text': note['text'],
             'createdAt': int(note['createdAt'].timestamp() * 1000),
             'userId': note['userId'],
             'userHost': note['userHost'],
