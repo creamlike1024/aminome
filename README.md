@@ -2,6 +2,15 @@
 
 **A**dd all **mi**sskey **no**tes to **Me**ilisearch.
 
+## Note
+
+If you import to a new meili_data, you need to run `updateSettings.sh` first to update index settings else you will countered this error:
+```
+ERR  * [api]   Internal error occurred in notes/search: Attribute `createdAt` is not sortable. This index does not have configured sortable attributes.
+```
+
+Run `getSettings.sh` to see current meilisearch index search
+
 ## これは何
 
 - [[13.12.0 beta.5]Meilisearchで導入以前の過去のノートを検索できるようにマイグレーションしたい · Issue #10789 · misskey-dev/misskey](https://github.com/misskey-dev/misskey/issues/10789) を実現します。
